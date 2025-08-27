@@ -288,6 +288,56 @@
 <footer>
   <p>© 2025 Репетитор английского | Онлайн‑занятия для взрослых A1–A2</p>
 </footer>
+<!-- Кнопка "вверх" -->
+<div id="toTop">
+  ⬆️
+  <span>Вернуться к меню</span>
+</div>
 
+<script>
+  // Плавный скролл к шапке
+  document.getElementById("toTop").addEventListener("click", function() {
+    const header = document.querySelector("header");
+    header.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Появление кнопки только при скролле вниз
+  window.addEventListener("scroll", function() {
+    const btn = document.getElementById("toTop");
+    if (window.scrollY > 300) {
+      btn.style.display = "flex";
+    } else {
+      btn.style.display = "none";
+    }
+  });
+</script>
+
+<style>
+  #toTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #3a7bd5;
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    display: none; /* Скрыто пока не пролистали вниз */
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: background 0.3s;
+  }
+  #toTop:hover {
+    background: #2a5ca0;
+  }
+  #toTop span {
+    font-size: 12px;
+    margin-top: 3px;
+    text-align: center;
+  }
+</style>
 </body>
 </html>
